@@ -10,14 +10,14 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { useColorScheme } from "@/presentation/hooks/useColorScheme";
 import "../global.css";
-import { useThemeColor } from "@/presentation/hooks/useThemeColor";
+import { useThemeColor } from "@/presentation/theme/hooks/useThemeColor";
+import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+const RootLayout = () => {
   const backgroundColor = useThemeColor({}, "background");
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -48,4 +48,6 @@ export default function RootLayout() {
       </ThemeProvider>
     </GestureHandlerRootView>
   );
-}
+};
+
+export default RootLayout;
