@@ -1,5 +1,5 @@
 export interface Payment {
-    id: string;
+    id: number;
     loanId: string;
     amount: number;
     paymentDate: Date;

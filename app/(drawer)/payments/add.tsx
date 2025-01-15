@@ -14,7 +14,7 @@ import {
   import React from "react";
   
   type LoanSummary = {
-    id: string;
+    id: number;
     clientName: string;
     nextPaymentDate: Date;
     installmentAmount: number;
@@ -25,7 +25,7 @@ import {
   const AddPaymentScreen = () => {
     const mockLoans: LoanSummary[] = [
       {
-        id: "1",
+        id: 1,
         clientName: "Juan Pérez",
         nextPaymentDate: new Date(2024, 0, 1),
         installmentAmount: 1000,
@@ -33,7 +33,7 @@ import {
         lateFeesRate: 5,
       },
       {
-        id: "2",
+        id: 2,
         clientName: "María García",
         nextPaymentDate: new Date(2024, 0, 15),
         installmentAmount: 1500,
