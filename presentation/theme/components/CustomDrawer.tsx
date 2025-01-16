@@ -4,11 +4,17 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, useColorScheme } from "react-native";
+import { ThemedText } from "./ThemedText";
 
 const CustomDrawer = (props: DrawerContentComponentProps) => {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === "dark";
+
   return (
-    <DrawerContentScrollView className="flex-1 bg-gray-50">
+    <DrawerContentScrollView
+      className={`flex-1 ${isDarkMode ? "bg-gray-900" : "bg-gray-50"}`}
+    >
       <View className="px-4 pb-9">
         <Image
           source={require("@/assets/images/prestamo.png")}
@@ -21,10 +27,17 @@ const CustomDrawer = (props: DrawerContentComponentProps) => {
           resizeMode="contain"
         />
         {/* Título */}
-        <Text style={{ fontSize: 20, color: "#fff", fontWeight: "bold" }}>
-          Préstamos App
-        </Text>
-        <Text style={{ fontSize: 14, color: "#d1d5db" }}>
+        <ThemedText
+          className={`${isDarkMode ? "text-gray-100" : "text-gray-900"}`}
+          type="title"
+        >
+          JCapital
+        </ThemedText>
+        <Text
+          className={`text-sm ${
+            isDarkMode ? "text-gray-400" : "text-gray-900"
+          }`}
+        >
           Tu solución rápida
         </Text>
       </View>

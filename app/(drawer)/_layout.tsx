@@ -13,8 +13,8 @@ const DrawerLayout = () => {
         drawerActiveTintColor: "#2563eb",
         drawerInactiveTintColor: "#6b7280",
         headerShadowVisible: false,
-        headerShown: true,
-        headerTitle: ""
+        headerShown: false,
+        headerTitle: "",
       }}
     >
       <Drawer.Screen

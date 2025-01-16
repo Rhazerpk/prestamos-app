@@ -34,8 +34,7 @@ const SettingsScreen = () => {
 
   return (
     <ThemedView style={{ flex: 1 }}>
-      <StatusBar style={currentTheme === "dark" ? "light" : "dark"} />
-      <ThemedCard className="mt-5">
+      <ThemedCard className="mt-10">
         <ThemedSwitch
           text="Dark Mode"
           className="mb-5"

@@ -33,7 +33,12 @@ const RootLayout = () => {
       style={{ backgroundColor: backgroundColor, flex: 1 }}
     >
       <ThemeChangerProvider>
-        <Slot />
+        {/* <Slot /> */}
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
         <StatusBar style="auto" />
       </ThemeChangerProvider>
     </GestureHandlerRootView>

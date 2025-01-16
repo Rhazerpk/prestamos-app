@@ -232,7 +232,7 @@ const AddLoanScreen = () => {
           </View>
 
           {/* Fecha de Inicio */}
-          <View className="p-4">
+          <View className="mb-4">
             <CustomDatePicker
               label="Fecha de Inicio"
               value={formData.startDate}
