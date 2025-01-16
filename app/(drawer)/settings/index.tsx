@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useThemeChangerContext } from "@/presentation/context/ThemeChangerContext";
-import { StatusBar } from "expo-status-bar";
 import ThemedCard from "@/presentation/theme/components/ThemedCard";
 import { ThemedView } from "@/presentation/theme/components/ThemedView";
 import ThemedSwitch from "@/presentation/theme/components/ThemedSwitch";
