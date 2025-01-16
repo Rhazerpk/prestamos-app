@@ -14,6 +14,7 @@ import {
     const [formData, setFormData] = useState({
       firstName: "",
       lastName: "",
+      nickname: "",
       phone: "",
       address: "",
       email: "",
@@ -126,6 +127,21 @@ import {
                   {errors.lastName}
                 </Text>
               ) : null}
+            </View>
+
+            {/* Apodo */}
+            <View className="mb-4">
+              <Text className="text-sm font-medium text-gray-700 mb-1">
+                Apodo
+              </Text>
+              <TextInput
+                className="bg-gray-50 p-4 rounded-lg border border-gray-200"
+                placeholder="Ingrese el apodo"
+                value={formData.nickname}
+                onChangeText={(text) =>
+                  setFormData({ ...formData, nickname: text })
+                }
+              />
             </View>
   
             {/* Teléfono */}
