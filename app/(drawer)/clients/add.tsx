@@ -6,8 +6,8 @@ import {
   Pressable,
   Alert,
 } from "react-native";
-import { useState } from "react";
-import { router, Stack } from "expo-router";
+import { useState, useEffect } from "react";
+import { router, Stack, useLocalSearchParams } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme.web";
@@ -15,6 +15,8 @@ import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme.web";
 const AddClientScreen = () => {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === "dark";
+  const { id } = useLocalSearchParams();
+  const isEditing = Boolean(id);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -31,6 +33,33 @@ const AddClientScreen = () => {
     phone: "",
     email: "",
   });
+
+  useEffect(() => {
+    if (isEditing) {
+      // Aquí obtendrías los datos del cliente desde tu base de datos
+      // Por ahora usaremos datos de ejemplo
+      const mockClient = {
+        id: Number(id),
+        firstName: "Juan",
+        lastName: "Pérez",
+        nickname: "Juanito",
+        phone: "1234567890",
+        address: "Calle 123",
+        email: "juan@example.com",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+      setFormData({
+        firstName: mockClient.firstName,
+        lastName: mockClient.lastName,
+        nickname: mockClient.nickname || "",
+        phone: mockClient.phone,
+        address: mockClient.address || "",
+        email: mockClient.email || "",
+      });
+    }
+  }, [id]);
 
   const validateForm = () => {
     let isValid = true;
@@ -69,9 +98,14 @@ const AddClientScreen = () => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-      //TODO: Save client to database
-      Alert.alert("Éxito", "Cliente registrado correctamente");
-      router.back();
+      if (isEditing) {
+        //TODO: Update client in database
+        Alert.alert("Éxito", "Cliente actualizado correctamente");
+      } else {
+        //TODO: Save new client to database
+        Alert.alert("Éxito", "Cliente registrado correctamente");
+      }
+      router.push("/clients/list");
     }
   };
 
@@ -79,14 +113,17 @@ const AddClientScreen = () => {
     <>
       <Stack.Screen
         options={{
-          headerTitle: "Nuevo Cliente",
+          headerTitle: isEditing ? "Editar Cliente" : "Nuevo Cliente",
           headerStyle: {
             backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
           },
           headerTintColor: "white",
           headerShown: true,
           headerLeft: () => (
-            <Pressable onPress={() => router.back()} style={{ marginLeft: 16 }}>
+            <Pressable
+              onPress={() => router.push("/clients")}
+              style={{ marginLeft: 16 }}
+            >
               <Ionicons name="chevron-back" size={24} color="white" />
             </Pressable>
           ),
@@ -95,7 +132,7 @@ const AddClientScreen = () => {
       <ScrollView className="flex-1 bg-gray-50">
         <View className="p-4">
           <View className="bg-white rounded-xl shadow-sm p-4 mb-4">
-            
+            {/* Los campos del formulario permanecen igual */}
             {/* Nombre */}
             <View className="mb-4">
               <Text className="text-sm font-medium text-gray-700 mb-1">
@@ -235,7 +272,7 @@ const AddClientScreen = () => {
               className="flex-1 bg-blue-600 p-4 rounded-lg"
             >
               <Text className="text-center font-medium text-white">
-                Guardar
+                {isEditing ? "Actualizar" : "Guardar"}
               </Text>
             </Pressable>
           </View>
