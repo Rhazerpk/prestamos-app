@@ -11,6 +11,7 @@ import { router, Stack, useLocalSearchParams } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme.web";
+import CustomStack from "@/presentation/theme/components/CustomStack";
 
 const AddClientScreen = () => {
   const colorScheme = useColorScheme();
@@ -111,24 +112,18 @@ const AddClientScreen = () => {
 
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerTitle: isEditing ? "Editar Cliente" : "Nuevo Cliente",
-          headerStyle: {
-            backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
-          },
-          headerTintColor: "white",
-          headerShown: true,
-          headerLeft: () => (
-            <Pressable
-              onPress={() => router.push("/clients")}
-              style={{ marginLeft: 16 }}
-            >
-              <Ionicons name="chevron-back" size={24} color="white" />
-            </Pressable>
-          ),
+      <CustomStack
+        headerTitle={isEditing ? "Editar Cliente" : "Nuevo Cliente"}
+        headerStyle={{
+          backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
+        }}
+        headerTintColor="white"
+        headerLeft={{
+          iconName: "chevron-back",
+          onPress: () => router.push("/clients"),
         }}
       />
+
       <ScrollView className="flex-1 bg-gray-50">
         <View className="p-4">
           <View className="bg-white rounded-xl shadow-sm p-4 mb-4">

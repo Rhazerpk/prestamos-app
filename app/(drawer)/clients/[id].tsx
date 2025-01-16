@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Stack, useLocalSearchParams, router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import CustomStack from "@/presentation/theme/components/CustomStack";
 
 const clientData = {
   id: "1",
@@ -25,23 +26,15 @@ const ClientDetailScreen = () => {
 
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerShown: true,
-          headerShadowVisible: false,
-          headerTitle: "Detalle del Cliente",
-          headerStyle: {
-            backgroundColor: "#2563eb",
-          },
-          headerTintColor: "white",
-          headerLeft: () => (
-            <Pressable
-              onPress={() => router.push("/clients/clients-list")}
-              style={{ marginRight: 16 }}
-            >
-              <Ionicons name="chevron-back" size={24} color="white" />
-            </Pressable>
-          ),
+      <CustomStack
+        headerTitle="Detalle del Cliente"
+        headerStyle={{
+          backgroundColor: "#2563eb",
+        }}
+        headerTintColor="white"
+        headerLeft={{
+          iconName: "chevron-back",
+          onPress: () => router.push("/clients/clients-list"),
         }}
       />
       <ScrollView className="flex-1 bg-gray-50">

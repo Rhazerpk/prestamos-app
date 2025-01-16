@@ -3,6 +3,7 @@ import { View, Text, Pressable, ScrollView } from "react-native";
 import { router, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme.web";
+import CustomStack from "@/presentation/theme/components/CustomStack";
 
 const ClientsHomeScreen = () => {
   const colorScheme = useColorScheme();
@@ -25,20 +26,15 @@ const ClientsHomeScreen = () => {
 
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerTitle: "Gestión de Clientes",
-          headerStyle: {
-            backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
-          },
-          headerTintColor: "white",
-          headerShadowVisible: false,
-          headerShown: true,
-          headerLeft: () => (
-            <Pressable onPress={() => router.back()} style={{ marginLeft: 16 }}>
-              <Ionicons name="chevron-back" size={24} color="white" />
-            </Pressable>
-          ),
+      <CustomStack
+        headerTitle="Gestión de Clientes"
+        headerStyle={{
+          backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
+        }}
+        headerTintColor="white"
+        headerLeft={{
+          iconName: "chevron-back",
+          onPress: () => router.back(),
         }}
       />
 
@@ -75,11 +71,7 @@ const ClientsHomeScreen = () => {
               >
                 <View className="items-center mb-2">
                   <View className="bg-blue-100 p-3 rounded-full mb-2">
-                    <Ionicons
-                      name={item.icon}
-                      size={24}
-                      color="#2563eb"
-                    />
+                    <Ionicons name={item.icon} size={24} color="#2563eb" />
                   </View>
                   <Text className="text-base font-bold text-gray-800 text-center">
                     {item.title}
