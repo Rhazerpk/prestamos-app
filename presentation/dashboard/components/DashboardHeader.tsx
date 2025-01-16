@@ -19,14 +19,28 @@ const DashboardHeader = ({ title }: Props) => {
 
   return (
     <View
-      className={`${
-        isDarkMode ? "bg-gray-900" : "bg-blue-600"
-      } absolute top-0 left-0 right-0 z-50`}
+      style={{
+        paddingTop: 50,
+        paddingBottom: 5,
+        backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
+      }}
+      className="absolute left-0 right-0 z-50"
     >
-      <View className="flex-row items-center px-4 pt-12 pb-6">
+      <View
+        className="flex-row items-center px-4"
+        style={{
+          height: 50,
+          alignItems: "center",
+        }}
+      >
         <TouchableOpacity
           onPress={handleOpenDrawer}
-          className="absolute left-4 top-12 z-10 p-2"
+          className="p-2"
+          style={{
+            position: "absolute",
+            left: 10, 
+            bottom: 4,
+          }}
         >
           <Ionicons
             name="menu"
@@ -35,15 +49,13 @@ const DashboardHeader = ({ title }: Props) => {
           />
         </TouchableOpacity>
 
-        <View className="flex-1 items-center">
-          <Text
-            className={`text-2xl font-bold ${
-              isDarkMode ? "text-gray-100" : "text-white"
-            }`}
-          >
-            {title}
-          </Text>
-        </View>
+        <Text
+          className={`text-2xl font-bold mx-auto ${
+            isDarkMode ? "text-gray-100" : "text-white"
+          }`}
+        >
+          {title}
+        </Text>
       </View>
     </View>
   );

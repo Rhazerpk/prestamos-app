@@ -8,14 +8,12 @@ const DashboardScreen = () => {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="absolute top-0 left-0 right-0 z-50">
-        <DashboardHeader title="Sistema de Préstamos" />
-      </View>
+      <DashboardHeader title="Sistema de Préstamos" />
 
-      {/* Contenido scrolleable */}
+      {/* Main Content */}
       <ScrollView
         className="flex-1"
-        contentContainerStyle={{ paddingTop: 140 }}
+        contentContainerStyle={{ paddingTop: 155 }}
       >
         {/* Stats Cards Section */}
         <View className="px-4 -mt-8">
