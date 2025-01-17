@@ -2,7 +2,7 @@ import React from "react";
 import { Drawer } from "expo-router/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import CustomDrawer from "@/presentation/theme/components/CustomDrawer";
-import { allRoutes } from "@/constants/routes";
+import DashboardHeader from "@/presentation/dashboard/components/DashboardHeader";
 
 const DrawerLayout = () => {
   return (
@@ -19,10 +19,13 @@ const DrawerLayout = () => {
           drawerIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
           ),
+          headerShown: true,
+          headerTitle: "Inicio",
+          header: () => <DashboardHeader title="Sistemas de Préstamos"/>,
         }}
       />
       <Drawer.Screen
-        name="clients/index"
+        name="(stack)/clients"
         options={{
           drawerLabel: "Clientes",
           drawerIcon: ({ color, size }) => (
@@ -31,7 +34,7 @@ const DrawerLayout = () => {
         }}
       />
       <Drawer.Screen
-        name="loans/index"
+        name="(stack)/loans"
         options={{
           drawerLabel: "Préstamos",
           drawerIcon: ({ color, size }) => (
@@ -40,7 +43,7 @@ const DrawerLayout = () => {
         }}
       />
       <Drawer.Screen
-        name="payments/index"
+        name="(stack)/payments"
         options={{
           drawerLabel: "Pagos",
           drawerIcon: ({ color, size }) => (
@@ -57,19 +60,6 @@ const DrawerLayout = () => {
           ),
         }}
       />
-      {/* {allRoutes.map((route) => (
-        <Drawer.Screen
-          key={route.name}
-          name={route.name}
-          options={{
-            drawerLabel: route.title,
-            title: route.title,
-            drawerIcon: ({ color, size }) => (
-              <Ionicons name={route.icon} size={size} color={color} />
-            ),
-          }}
-        />
-      ))} */}
     </Drawer>
   );
 };

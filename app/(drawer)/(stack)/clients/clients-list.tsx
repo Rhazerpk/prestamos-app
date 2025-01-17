@@ -151,7 +151,7 @@ const ClientsListScreen = () => {
 
   return (
     <>
-      <Stack.Screen
+      {/* <Stack.Screen
         options={{
           headerTitle: "Consulta de Clientes",
           headerStyle: {
@@ -169,7 +169,7 @@ const ClientsListScreen = () => {
             </Pressable>
           ),
         }}
-      />
+      /> */}
 
       <View className="flex-1 bg-gray-50">
         <View className="p-4">

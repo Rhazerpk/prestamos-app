@@ -8,12 +8,12 @@ const DashboardScreen = () => {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <DashboardHeader title="Sistema de Préstamos" />
+      {/* <DashboardHeader title="Sistema de Préstamos" /> */}
 
       {/* Main Content */}
       <ScrollView
         className="flex-1"
-        contentContainerStyle={{ paddingTop: 155 }}
+        contentContainerStyle={{ paddingTop: 150 }}
       >
         {/* Stats Cards Section */}
         <View className="px-4 -mt-8">

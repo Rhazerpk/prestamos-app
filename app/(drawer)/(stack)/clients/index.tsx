@@ -26,7 +26,7 @@ const ClientsHomeScreen = () => {
 
   return (
     <>
-      <CustomStack
+      {/* <CustomStack
         headerTitle="Gestión de Clientes"
         headerStyle={{
           backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
@@ -36,7 +36,7 @@ const ClientsHomeScreen = () => {
           iconName: "chevron-back",
           onPress: () => router.back(),
         }}
-      />
+      /> */}
 
       <ScrollView className="flex-1 bg-gray-50">
         <View className="p-4">

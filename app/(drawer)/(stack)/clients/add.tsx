@@ -112,7 +112,7 @@ const AddClientScreen = () => {
 
   return (
     <>
-      <CustomStack
+      {/* <CustomStack
         headerTitle={isEditing ? "Editar Cliente" : "Nuevo Cliente"}
         headerStyle={{
           backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
@@ -122,7 +122,7 @@ const AddClientScreen = () => {
           iconName: "chevron-back",
           onPress: () => router.push("/clients"),
         }}
-      />
+      /> */}
 
       <ScrollView className="flex-1 bg-gray-50">
         <View className="p-4">

@@ -26,7 +26,7 @@ const ClientDetailScreen = () => {
 
   return (
     <>
-      <CustomStack
+      {/* <CustomStack
         headerTitle="Detalle del Cliente"
         headerStyle={{
           backgroundColor: "#2563eb",
@@ -36,7 +36,7 @@ const ClientDetailScreen = () => {
           iconName: "chevron-back",
           onPress: () => router.push("/clients/clients-list"),
         }}
-      />
+      /> */}
       <ScrollView className="flex-1 bg-gray-50">
         {/* Información Principal */}
         <View className="px-4 py-6 bg-white shadow-sm mb-4">
