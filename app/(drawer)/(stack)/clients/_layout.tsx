@@ -13,7 +13,6 @@ const ClientsLayout = () => {
         headerTitleStyle: {
           fontWeight: "bold",
         },
-        animation: "slide_from_right",
       }}
     >
       <Stack.Screen
@@ -29,7 +28,6 @@ const ClientsLayout = () => {
               style={{ marginLeft: 10 }}
             />
           ),
-          animation: "slide_from_right",
         }}
       />
       <Stack.Screen
