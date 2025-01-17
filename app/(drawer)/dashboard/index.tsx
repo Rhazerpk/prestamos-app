@@ -2,19 +2,12 @@ import { View, Text, ScrollView } from "react-native";
 import { router } from "expo-router";
 import SummaryCard from "@/presentation/dashboard/components/SummaryCard";
 import ActionCard from "@/presentation/dashboard/components/ActionCard";
-import DashboardHeader from "@/presentation/dashboard/components/DashboardHeader";
 
 const DashboardScreen = () => {
   return (
     <View className="flex-1 bg-gray-50">
-      {/* Header */}
-      {/* <DashboardHeader title="Sistema de Préstamos" /> */}
-
-      {/* Main Content */}
-      <ScrollView
-        className="flex-1"
-        contentContainerStyle={{ paddingTop: 150 }}
-      >
+      <ScrollView className="flex-1" contentContainerStyle={{ paddingTop: 50 }}>
+        
         {/* Stats Cards Section */}
         <View className="px-4 -mt-8">
           <View className="bg-white rounded-xl shadow-sm p-4 mb-4">

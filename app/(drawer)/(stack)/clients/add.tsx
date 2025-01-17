@@ -7,15 +7,10 @@ import {
   Alert,
 } from "react-native";
 import { useState, useEffect } from "react";
-import { router, Stack, useLocalSearchParams } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
+import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
-import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme.web";
-import CustomStack from "@/presentation/theme/components/CustomStack";
 
 const AddClientScreen = () => {
-  const colorScheme = useColorScheme();
-  const isDarkMode = colorScheme === "dark";
   const { id } = useLocalSearchParams();
   const isEditing = Boolean(id);
 
@@ -37,8 +32,6 @@ const AddClientScreen = () => {
 
   useEffect(() => {
     if (isEditing) {
-      // Aquí obtendrías los datos del cliente desde tu base de datos
-      // Por ahora usaremos datos de ejemplo
       const mockClient = {
         id: Number(id),
         firstName: "Juan",
@@ -112,22 +105,10 @@ const AddClientScreen = () => {
 
   return (
     <>
-      {/* <CustomStack
-        headerTitle={isEditing ? "Editar Cliente" : "Nuevo Cliente"}
-        headerStyle={{
-          backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
-        }}
-        headerTintColor="white"
-        headerLeft={{
-          iconName: "chevron-back",
-          onPress: () => router.push("/clients"),
-        }}
-      /> */}
-
       <ScrollView className="flex-1 bg-gray-50">
         <View className="p-4">
           <View className="bg-white rounded-xl shadow-sm p-4 mb-4">
-            {/* Los campos del formulario permanecen igual */}
+            
             {/* Nombre */}
             <View className="mb-4">
               <Text className="text-sm font-medium text-gray-700 mb-1">

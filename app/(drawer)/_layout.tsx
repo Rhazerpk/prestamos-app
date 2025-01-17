@@ -2,7 +2,7 @@ import React from "react";
 import { Drawer } from "expo-router/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import CustomDrawer from "@/presentation/theme/components/CustomDrawer";
-import DashboardHeader from "@/presentation/dashboard/components/DashboardHeader";
+import CustomHeader from "@/presentation/theme/components/CustomHeader";
 
 const DrawerLayout = () => {
   return (
@@ -21,7 +21,14 @@ const DrawerLayout = () => {
           ),
           headerShown: true,
           headerTitle: "Inicio",
-          header: () => <DashboardHeader title="Sistemas de Préstamos"/>,
+          header: () => (
+            <CustomHeader
+              icon="menu-outline"
+              title="Inicio"
+              size={30}
+              showDrawerButton
+            />
+          ),
         }}
       />
       <Drawer.Screen
@@ -54,6 +61,15 @@ const DrawerLayout = () => {
       <Drawer.Screen
         name="settings/index"
         options={{
+          headerShown: true,
+          header: () => (
+            <CustomHeader
+              icon="menu-outline"
+              size={30}
+              title="Configuración"
+              showDrawerButton
+            />
+          ),
           drawerLabel: "Configuración",
           drawerIcon: ({ color, size }) => (
             <Ionicons name="settings" size={size} color={color} />

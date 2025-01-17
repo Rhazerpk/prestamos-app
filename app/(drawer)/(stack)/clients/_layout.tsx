@@ -1,31 +1,24 @@
-import { Ionicons } from "@expo/vector-icons";
-import { router, Stack } from "expo-router";
+import CustomHeader from "@/presentation/theme/components/CustomHeader";
+import { Stack } from "expo-router";
 import React from "react";
 
 const ClientsLayout = () => {
   return (
     <Stack
       screenOptions={{
-        headerStyle: {
-          backgroundColor: "#ffffff",
-        },
-        headerTintColor: "#000000",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
+        headerShown: true,
       }}
     >
       <Stack.Screen
         name="index"
         options={{
-          title: "Clientes",
-          headerLeft: () => (
-            <Ionicons
-              name="arrow-back-outline"
-              size={24}
-              color="black"
-              onPress={() => router.back()}
-              style={{ marginLeft: 10 }}
+          headerShown: true,
+          header: () => (
+            <CustomHeader
+              icon="menu-outline"
+              title="Clientes"
+              size={30}
+              showDrawerButton
             />
           ),
         }}
@@ -33,20 +26,41 @@ const ClientsLayout = () => {
       <Stack.Screen
         name="add"
         options={{
-          title: "Agregar Cliente",
+          header: () => (
+            <CustomHeader
+              icon="close-outline"
+              title="Agregar Cliente"
+              size={30}
+              showBackButton
+            />
+          ),
           presentation: "modal",
         }}
       />
       <Stack.Screen
         name="[id]"
         options={{
-          title: "Detalle del Cliente",
+          header: () => (
+            <CustomHeader
+              icon="arrow-back-outline"
+              title="Detalle del Cliente"
+              size={30}
+              showBackButton
+            />
+          ),
         }}
       />
       <Stack.Screen
         name="clients-list"
         options={{
-          title: "Lista de Clientes",
+          header: () => (
+            <CustomHeader
+              icon="arrow-back-outline"
+              title="Lista de Clientes"
+              size={30}
+              showBackButton
+            />
+          ),
         }}
       />
     </Stack>

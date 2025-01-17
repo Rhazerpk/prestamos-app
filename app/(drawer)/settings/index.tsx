@@ -33,7 +33,7 @@ const SettingsScreen = () => {
 
   return (
     <ThemedView style={{ flex: 1 }}>
-      <ThemedCard className="mt-10">
+      <ThemedCard className="mt-0">
         <ThemedSwitch
           text="Dark Mode"
           className="mb-5"

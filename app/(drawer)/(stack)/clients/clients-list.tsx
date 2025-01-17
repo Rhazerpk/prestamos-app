@@ -8,7 +8,7 @@ import {
   Alert,
   Modal,
 } from "react-native";
-import { router, Stack } from "expo-router";
+import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "@/presentation/theme/hooks/useColorScheme.web";
 import { Client } from "@/models/Client";
@@ -39,8 +39,6 @@ const mockClients: Client[] = [
 ];
 
 const ClientsListScreen = () => {
-  const colorScheme = useColorScheme();
-  const isDarkMode = colorScheme === "dark";
   const [searchQuery, setSearchQuery] = useState("");
   const [clients, setClients] = useState<Client[]>(mockClients);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
@@ -151,26 +149,6 @@ const ClientsListScreen = () => {
 
   return (
     <>
-      {/* <Stack.Screen
-        options={{
-          headerTitle: "Consulta de Clientes",
-          headerStyle: {
-            backgroundColor: isDarkMode ? "#1f2937" : "#2563eb",
-          },
-          headerTintColor: "white",
-          headerShadowVisible: false,
-          headerShown: true,
-          headerLeft: () => (
-            <Pressable
-              onPress={() => router.push("/clients")}
-              style={{ marginLeft: 16 }}
-            >
-              <Ionicons name="chevron-back" size={24} color="white" />
-            </Pressable>
-          ),
-        }}
-      /> */}
-
       <View className="flex-1 bg-gray-50">
         <View className="p-4">
           {/* Barra de búsqueda */}
